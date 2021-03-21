@@ -153,10 +153,11 @@ if __name__ == '__main__':
     infile = 'sub_database'
     if args.mini:
         infile = 'mini_database'
-
-    if osp.isfile('../database/{}.json'.format(infile)):
-        with open('../database/{}.json'.format(infile)) as json_file:
+        
+    if osp.isfile('C:/Users/cocol/Documents/database/ETHEC/test.json'):
+        with open('C:/Users/cocol/Documents/database/ETHEC/test.json') as json_file:
             data = json.load(json_file)
+        
     else:
         print("File does not exist!")
         exit()
