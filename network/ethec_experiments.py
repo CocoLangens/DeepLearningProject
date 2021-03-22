@@ -7,8 +7,8 @@ import torchvision
 from torchvision import datasets, models, transforms
 
 import os
-import sys
-sys.path.append("C:/Users/cocol/Documents/aRobotics/Q3/CS4240_DeepLearning/Project/Code_new/DeepLearningProject/")
+#import sys
+#sys.path.append("C:/Users/cocol/Documents/aRobotics/Q3/CS4240_DeepLearning/Project/Code_new/DeepLearningProject/")
 from network.experiment import Experiment, WeightedResampler
 from network.evaluation import MultiLabelEvaluation, Evaluation, MultiLabelEvaluationSingleThresh, MultiLevelEvaluation
 from network.finetuner import CIFAR10
@@ -287,34 +287,34 @@ def ETHEC_train_model(arguments):
 
     if not arguments.merged:
         #train_set = ETHECDB(path_to_json='../database/ETHEC/train.json',
-        train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train.json',                   
+        train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',                   
                             path_to_images=arguments.image_dir,
                             labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
+        val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                           path_to_images=arguments.image_dir,
                           labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test.json',
+        test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                            path_to_images=arguments.image_dir,
                            labelmap=labelmap, transform=val_test_data_transforms)
     elif not arguments.debug:
-        train_set = ETHECDBMerged(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
                                   path_to_images=arguments.image_dir,
                                   labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMerged(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                                 path_to_images=arguments.image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMerged(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                                  path_to_images=arguments.image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms)
     else:
         labelmap = ETHECLabelMapMergedSmall(single_level=False)
-        train_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
                                        path_to_images=arguments.image_dir,
                                        labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                                      path_to_images=arguments.image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                                       path_to_images=arguments.image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms)
 
