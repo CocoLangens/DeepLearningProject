@@ -7,6 +7,8 @@ import torchvision
 from torchvision import datasets, models, transforms
 
 import os
+import sys
+sys.path.append("C:/Users/cocol/Documents/aRobotics/Q3/CS4240_DeepLearning/Project/Code_new/DeepLearningProject/")
 from network.experiment import Experiment, WeightedResampler
 from network.evaluation import MultiLabelEvaluation, Evaluation, MultiLabelEvaluationSingleThresh, MultiLevelEvaluation
 from network.finetuner import CIFAR10
