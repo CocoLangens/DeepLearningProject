@@ -9,7 +9,7 @@ from torchvision import datasets, models, transforms
 import copy
 from tensorboardX import SummaryWriter
 import datetime
-from evaluation import Evaluation
+from network.evaluation import Evaluation
 import time
 import numpy as np
 import os
