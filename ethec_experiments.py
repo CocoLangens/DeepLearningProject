@@ -16,15 +16,6 @@ from network.finetuner import CIFAR10
 from data.db import ETHECLabelMap, ETHECDB, ETHECDBMerged, ETHECLabelMapMerged, ETHECLabelMapMergedSmall, ETHECDBMergedSmall
 from network.loss import MultiLevelCELoss, MultiLabelSMLoss, LastLevelCELoss, MaskedCELoss, HierarchicalSoftmaxLoss
 
-"""Added to deal with file structure LInux and Windows
-from pathlib import Path
-
-data_folder = Path("DeepLearningProject/database/ETHEC")
-
-train_file = data_folder / "train_coco.json"
-print(train_file, "printed this?")
-End addition"""
-
 from PIL import Image
 import numpy as np
 
@@ -293,17 +284,51 @@ def ETHEC_train_model(arguments):
                                                        transforms.Resize((input_size, input_size)),
                                                        transforms.ToTensor(),
                                                        ])
+    #WINDOWS PATH STRUCTURE
+    if not arguments.merged:
+        #train_set = ETHECDB(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train.json', #WINDOWS PATH
+                            path_to_images=arguments.image_dir,
+                            labelmap=labelmap, transform=train_data_transforms)
+        val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
+                          path_to_images=arguments.image_dir,
+                          labelmap=labelmap, transform=val_test_data_transforms)
+        test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test.json',
+                           path_to_images=arguments.image_dir,
+                           labelmap=labelmap, transform=val_test_data_transforms)
+    elif not arguments.debug:
+        train_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train.json',
+                                  path_to_images=arguments.image_dir,
+                                  labelmap=labelmap, transform=train_data_transforms)
+        val_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
+                                path_to_images=arguments.image_dir,
+                                labelmap=labelmap, transform=val_test_data_transforms)
+        test_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test.json',
+                                 path_to_images=arguments.image_dir,
+                                 labelmap=labelmap, transform=val_test_data_transforms)
+    else:
+        labelmap = ETHECLabelMapMergedSmall(single_level=False)
+        train_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train.json',
+                                       path_to_images=arguments.image_dir,
+                                       labelmap=labelmap, transform=train_data_transforms)
+        val_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
+                                     path_to_images=arguments.image_dir,
+                                     labelmap=labelmap, transform=val_test_data_transforms)
+        test_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test.json',
+                                      path_to_images=arguments.image_dir,
+                                      labelmap=labelmap, transform=val_test_data_transforms)
+    
 # =============================================================================
-#     WINDOWS PATH STRUCTURE
+#     #linux file structure  
 #     if not arguments.merged:
 #         #train_set = ETHECDB(path_to_json='../database/ETHEC/train.json',
-#         train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json', #WINDOWS PATH
+#         train_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
 #                             path_to_images=arguments.image_dir,
 #                             labelmap=labelmap, transform=train_data_transforms)
-#         val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
+#         val_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
 #                           path_to_images=arguments.image_dir,
 #                           labelmap=labelmap, transform=val_test_data_transforms)
-#         test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
+#         test_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
 #                            path_to_images=arguments.image_dir,
 #                            labelmap=labelmap, transform=val_test_data_transforms)
 #     elif not arguments.debug:
@@ -327,40 +352,7 @@ def ETHEC_train_model(arguments):
 #         test_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
 #                                       path_to_images=arguments.image_dir,
 #                                       labelmap=labelmap, transform=val_test_data_transforms)
-#     
 # =============================================================================
-    if not arguments.merged:
-        #train_set = ETHECDB(path_to_json='../database/ETHEC/train.json',
-        train_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
-                            path_to_images=arguments.image_dir,
-                            labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
-                          path_to_images=arguments.image_dir,
-                          labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
-                           path_to_images=arguments.image_dir,
-                           labelmap=labelmap, transform=val_test_data_transforms)
-    elif not arguments.debug:
-        train_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
-                                  path_to_images=arguments.image_dir,
-                                  labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
-                                path_to_images=arguments.image_dir,
-                                labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
-                                 path_to_images=arguments.image_dir,
-                                 labelmap=labelmap, transform=val_test_data_transforms)
-    else:
-        labelmap = ETHECLabelMapMergedSmall(single_level=False)
-        train_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
-                                       path_to_images=arguments.image_dir,
-                                       labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
-                                     path_to_images=arguments.image_dir,
-                                     labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
-                                      path_to_images=arguments.image_dir,
-                                      labelmap=labelmap, transform=val_test_data_transforms)
 
     print('Dataset has following splits: train: {}, val: {}, test: {}'.format(len(train_set), len(val_set),
                                                                               len(test_set)))
