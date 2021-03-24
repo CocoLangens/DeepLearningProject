@@ -306,13 +306,13 @@ def create_imageless_dataloaders(debug, image_dir):
                                                    ])
     if not debug:
         print("== Running in DEBUG mode!")
-        train_set = ETHECDBMerged(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
                                   path_to_images=image_dir,
                                   labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMerged(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                                 path_to_images=image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMerged(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                                  path_to_images=image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
     else:

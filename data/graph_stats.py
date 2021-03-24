@@ -154,8 +154,8 @@ if __name__ == '__main__':
     if args.mini:
         infile = 'mini_database'
         
-    if osp.isfile('C:/Users/cocol/Documents/database/ETHEC/test.json'):
-        with open('C:/Users/cocol/Documents/database/ETHEC/test.json') as json_file:
+    if osp.isfile('C:/Users/cocol/Documents/database/ETHEC/val.json'):
+        with open('C:/Users/cocol/Documents/database/ETHEC/val.json') as json_file:
             data = json.load(json_file)
         
     else:
