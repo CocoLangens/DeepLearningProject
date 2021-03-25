@@ -2672,15 +2672,23 @@ class ETHECDB(torch.utils.data.Dataset):
                 {'image': <np.array> image, 'labels': <np.array(n_classes)> hot vector, 'leaf_label': <int>}
         """
         sample = self.ETHEC.__getitem__(item)
-        image_folder = sample['image_path'][11:21] + "R" if '.JPG' in sample['image_path'] else sample['image_name'][
-                                                                                                11:21] + "R"
-        path_to_image = os.path.join(self.path_to_images, image_folder,
-                                     sample['image_path'] if '.JPG' in sample['image_path'] else sample['image_name'])
+        #image_folder = sample['image_path'][11:21] + "R" if '.JPG' in sample['image_path'] else sample['image_name'][
+                                                                                                #11:21] + "R"
+    
+        image_folder = sample['image_name']#[11:21] 
+        print(image_folder, "image_older")
+        path_to_image = os.path.join(self.path_to_images,sample['image_path'],sample['image_name'])
+                            
+        
+        #path_to_image = os.path.join(self.path_to_images, image_folder,
+                                     #sample['image_path'] if '.JPG' in sample['image_path'] else sample['image_name'])
         img = cv2.imread(path_to_image)
+        #Aangepast    
+        print(type(img), "type")
+        #untill here
         if img is None:
             print('This image is None: {} {}'.format(path_to_image, sample['token']))
 
-        img = np.array(img)
         if self.transform:
             img = self.transform(img)
 
