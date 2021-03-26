@@ -1245,15 +1245,15 @@ def order_embedding_train_model(arguments):
                                                        ])
 
     if not arguments.merged:
-        train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
+        train_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
                             path_to_images=arguments.image_dir,
-                            labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
+                            labelmap=labelmap, transform=train_data_transforms)
+        val_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val.json',
                           path_to_images=arguments.image_dir,
-                          labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
+                          labelmap=labelmap, transform=val_test_data_transforms) #, with_images=False)
+        test_set = ETHECDB(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test.json',
                            path_to_images=arguments.image_dir,
-                           labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                           labelmap=labelmap, transform=val_test_data_transforms) #, with_images=False)
     elif not arguments.debug:
         train_set = ETHECDBMerged(path_to_json='../database/ETHEC/train.json',
                                   path_to_images=arguments.image_dir,
