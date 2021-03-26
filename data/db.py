@@ -53,7 +53,7 @@ class ETHECLabelMap:
         }
 
         self.genus = {
-            "Carterocephalus": 0,
+            "bony_fish.n.01": 0,
             "Heteropterus": 1,
             "Thymelicus": 2,
             "Hesperia": 3,
@@ -191,7 +191,7 @@ class ETHECLabelMap:
         }
 
         self.specific_epithet = {
-            "palaemon": 0,
+            "goldfish.n.01": 0,
             "morpheus": 1,
             "sylvestris": 2,
             "lineola": 3,
@@ -1309,7 +1309,7 @@ class ETHECLabelMap:
         }
 
         self.child_of_family = {
-            "Hesperiidae": [
+            "Hesperiidae'": [
                 "Heteropterinae",
                 "Hesperiinae",
                 "Pyrginae"
@@ -1346,7 +1346,7 @@ class ETHECLabelMap:
 
         self.child_of_subfamily = {
             "Heteropterinae": [
-                "Carterocephalus",
+                "bony_fish.n.01",
                 "Heteropterus"
             ],
             "Hesperiinae": [
@@ -1525,7 +1525,7 @@ class ETHECLabelMap:
         }
 
         self.child_of_genus = {
-            "Carterocephalus": [
+            "bony_fish.n.01": [
                 "Carterocephalus_palaemon"
             ],
             "Heteropterus": [
