@@ -2502,7 +2502,7 @@ class ETHEC:
         Constructor.
         :param path_to_json: <str> .json path used for loading database entries.
         """
-        self.path_to_json = path_to_json
+        self.path_to_json = 'C:/Users/cocol/Documents/database/ETHEC/train_coco.py' #path_to_json
         with open(path_to_json) as json_file:
             self.data_dict = json.load(json_file)
         self.data_tokens = [token for token in self.data_dict]
