@@ -395,23 +395,23 @@ def create_imageless_dataloaders(debug, image_dir):
                                                    ])
     if not debug:
         print("== Running in DEBUG mode!")
-        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
+        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                   path_to_images=image_dir,
                                   labelmap=labelmap, transform=train_data_transforms, with_images=True)
-        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
+        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                 path_to_images=image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
-        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
+        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                  path_to_images=image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
     else:
-        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
+        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                        path_to_images=image_dir,
                                        labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
+        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                      path_to_images=image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
+        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                       path_to_images=image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
 
@@ -2332,13 +2332,13 @@ def order_embedding_labels_with_images_train_model(arguments):
         print("== Running in DEBUG mode!")
 
     if arguments.debug:
-        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train_coco.npy')[()]
-        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val_coco.npy')[()])
-        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test_coco.npy')[()])
+        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy')[()]
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy')[()])
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test.npy')[()])
     else:
-        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train_coco.npy')[()]
-        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val_coco.npy')[()])
-        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test_coco.npy')[()])
+        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy')[()]
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy')[()])
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test.npy')[()])
 
     use_criterion = None
     if arguments.loss == 'order_emb_loss':
