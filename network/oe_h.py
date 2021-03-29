@@ -395,23 +395,23 @@ def create_imageless_dataloaders(debug, image_dir):
                                                    ])
     if not debug:
         print("== Running in DEBUG mode!")
-        train_set = ETHECDBMerged(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
                                   path_to_images=image_dir,
                                   labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMerged(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                                 path_to_images=image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMerged(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMerged(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                                  path_to_images=image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
     else:
-        train_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/train_coco.json',
                                        path_to_images=image_dir,
                                        labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/val_coco.json',
                                      path_to_images=image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMergedSmall(path_to_json='C:/Users/cocol/Documents/database/ETHEC/test_coco.json',
                                       path_to_images=image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
 
@@ -2334,9 +2334,9 @@ def order_embedding_labels_with_images_train_model(arguments):
         image_fc7.update(np.load('../database/ETHEC/ETHECSmall_embeddings/val.npy')[()])
         image_fc7.update(np.load('../database/ETHEC/ETHECSmall_embeddings/test.npy')[()])
     else:
-        image_fc7 = np.load('../database/ETHEC/ETHEC_embeddings/train.npy')[()]
-        image_fc7.update(np.load('../database/ETHEC/ETHEC_embeddings/val.npy')[()])
-        image_fc7.update(np.load('../database/ETHEC/ETHEC_embeddings/test.npy')[()])
+        image_fc7 = np.load('C:/Users/cocol/Documents/database/ETHEC/train_coco.npy')[()]
+        image_fc7.update(np.load('C:/Users/cocol/Documents/database/ETHEC/val_coco.npy')[()])
+        image_fc7.update(np.load('C:/Users/cocol/Documents/database/ETHEC/test_coco.npy')[()])
 
     use_criterion = None
     if arguments.loss == 'order_emb_loss':
