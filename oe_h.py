@@ -407,13 +407,13 @@ def create_imageless_dataloaders(debug, image_dir):
     else:
         train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                        path_to_images=image_dir,
-                                       labelmap=labelmap, transform=train_data_transforms, with_images=False)
+                                       labelmap=labelmap, transform=train_data_transforms)#, with_images=False)
         val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                      path_to_images=image_dir,
-                                     labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                                     labelmap=labelmap, transform=val_test_data_transforms)#, with_images=False)
         test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                       path_to_images=image_dir,
-                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                                      labelmap=labelmap, transform=val_test_data_transforms)#, with_images=False)
 
     print('Dataset images: train {}, val {}, test {}'.format(len(train_set), len(val_set), len(test_set)))
     trainloader = torch.utils.data.DataLoader(train_set,
