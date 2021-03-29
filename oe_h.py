@@ -395,23 +395,23 @@ def create_imageless_dataloaders(debug, image_dir):
                                                    ])
     if not debug:
         print("== Running in DEBUG mode!")
-        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
+        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                   path_to_images=image_dir,
                                   labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
+        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                 path_to_images=image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
+        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                  path_to_images=image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
     else:
-        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train_coco.json',
+        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                        path_to_images=image_dir,
                                        labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val_coco.json',
+        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                      path_to_images=image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test_coco.json',
+        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                       path_to_images=image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
 
