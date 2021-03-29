@@ -2316,7 +2316,9 @@ def order_embedding_labels_with_images_train_model(arguments):
         labelmap = ETHECLabelMapMerged()
     if arguments.debug:
         labelmap = ETHECLabelMapMergedSmall()
-
+    #Added myself
+    labelmap = ETHECLabelMap()
+    #
     dataloaders = create_imageless_dataloaders(debug=arguments.debug, image_dir=arguments.image_dir)
     if arguments.load_G_from_disk:
         graph_dict = load_combined_graphs(debug=arguments.debug)
