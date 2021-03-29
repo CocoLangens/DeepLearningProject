@@ -154,7 +154,7 @@ class VizualizeGraphRepresentation:
         return ax
 
 def create_images():
-    path_to_weights = '/cluster/scratch/adhall/exp/toy_trees/oe/l_5_b_3/weights'
+    path_to_weights = 'C:/Users/cocol/Documents/aRobotics/Q3/CS4240_DeepLearning/Project/Code_new/DeepLearningProject/exp/exp_test1/weights'
     loss_fn = 'oe'
     files = os.listdir(path_to_weights)
     files.sort()
