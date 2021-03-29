@@ -339,7 +339,7 @@ class VizualizeGraphRepresentationWithImages:
 
 
 def create_images():
-    path_to_weights = '/cluster/scratch/adhall/exp/ethec/final_ec_full/load_emb_5k/50-50_hide_levels/ec_2d_2xlr_init_5k/weights'
+    path_to_weights = '/home/coco_langens/DeepLearningProject/exp/exp_full/weights'
     loss_fn = 'ec'
     files = os.listdir(path_to_weights)
     files.sort()
