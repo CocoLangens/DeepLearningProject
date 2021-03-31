@@ -336,10 +336,10 @@ def ETHEC_train_model(arguments):
         train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
                                   path_to_images=arguments.image_dir,
                                   labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val_small.json',
+        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
                                 path_to_images=arguments.image_dir,
                                 labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test_small.json',
+        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
                                  path_to_images=arguments.image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms)
     else:
