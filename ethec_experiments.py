@@ -322,18 +322,18 @@ def ETHEC_train_model(arguments):
     #linux file structure  
     if not arguments.merged:
         #train_set = ETHECDB(path_to_json='../database/ETHEC/train.json',
-        train_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train_small.json',
+        train_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
                             #path_to_images=os.path.join(r'/home/coco_langens/own_images/tiny-imagenet-200/'),#,arguments.image_dir),
                             path_to_images=arguments.image_dir,
                             labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val_small.json',
+        val_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
                           path_to_images=arguments.image_dir,
                           labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test_small.json',
+        test_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
                            path_to_images=arguments.image_dir,
                            labelmap=labelmap, transform=val_test_data_transforms)
     elif not arguments.debug:
-        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train_small.json',
+        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
                                   path_to_images=arguments.image_dir,
                                   labelmap=labelmap, transform=train_data_transforms)
         val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val_small.json',
@@ -344,13 +344,13 @@ def ETHEC_train_model(arguments):
                                  labelmap=labelmap, transform=val_test_data_transforms)
     else:
         labelmap = ETHECLabelMapMergedSmall(single_level=False)
-        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train_small.json',
+        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
                                        path_to_images=arguments.image_dir,
                                        labelmap=labelmap, transform=train_data_transforms)
-        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val_small.json',
+        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
                                      path_to_images=arguments.image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms)
-        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test_small.json',
+        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
                                      path_to_images=arguments.image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms)
 
