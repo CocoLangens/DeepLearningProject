@@ -13,6 +13,15 @@ We want to verify the claims that incorporating hierarchical information in loss
 The paper is provided with code, which is written in Pytorch. The paper provides little guidance on steps to take to achieve the desired results and the information how to use their code and dataset is very sparse. This chapter first provides some insights in the code and which parts are needed to reproduce the results that we want to achieve. Afterwards practical steps to run the code are explained. The reproduced paper can be found here: https://arxiv.org/abs/2004.03459.  
 
 ### Explanation code and reproduction
+**Order-preserving embedding methods**
+The reproduced paper focusses on embedding-based approaches. An embedding can be seen as general and powerful approach that maps object to points in a high-dimensional space. This space is called the embedding space. In case of an order-preserving embedding semantic hierarchy is modelled by exploiting a structure on the quiescent space. The advantage over the distance-preserving methods is that anti-symmetric and transitive relations can be captures, without the need to rely of physical closeness between points. To deal with the large volume that each object occupies in the embedding space the paper uses Euclidean Entailment Cones (EC). This method uses more flexible convex cones. 
+Another more general and flexible methods that is studied is one where embedding are defined by Hyperbolic Cones (HC). The advantage of HC over EC is that it does not have to deal with the capacity problem that EC has. This is due to the fact that the volume of a sphere grows exponentially in HC, compared to polynomial in EC. For this reason HC can visualize large trees. In the paper HC also shows better results than EC and for this reason we chose to focus on HC. 
+ 
+https://arxiv.org/pdf/1511.06361.pdf 
+https://arxiv.org/pdf/1804.01882.pdf 
+**CCN-based methods**
+Another possibility to preserve hierarchy in by incorporating it into the loss function of the model. These methods are less flexible, but can definitely improve performance compared to hierarchy-agnostic methods. In the paper 4 different CNN based methods are compared to a hierarchy agnostic baseline classifier and all 4 outperform the baseline. They even slightly outperform order-embeddings methods, although as mentioned before they are less flexible and do not allow for hierarchy retrieval. 
+The baseline is Hierarchy-agnostic Baseline classifier (HAB) which is agnostic to any label hierarchy in the dataset. This model is a multi-label classifier and the multi-label soft-margin loss is minimized. The best performing classifier with hierarchy included in the loss function is the Marginalization Classifier (MC). The probability to belong to a class is not predicted per level, but only for the last level. 
 
 ### Practical steps and guidance on how to run the code
 
