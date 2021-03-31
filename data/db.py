@@ -42,9 +42,9 @@ class ETHECLabelMap:
             "waterfowl.n.01": 2,
             "wading_bird.n.01": 3,
             "frog.n.01": 4,
-            "salamader.n.01": 5,
+            "salamander.n.01": 5,
             "snake.n.01": 6,
-            "crocodillian_reptile.n.01": 7,
+            "crocodilian_reptile.n.01": 7,
             "ungulate.n.01": 8,
             "carnivore.n.01": 9,
             "primate.n.02": 10,
@@ -57,7 +57,7 @@ class ETHECLabelMap:
             "crustacean.n.01": 17,
             "centipede.n.01": 18,
             "insect.n.01": 19,
-            "sea cucumber.n.01": 20,
+            "sea_cucumber.n.01": 20,
             "jellyfish.n.02": 21,
             "anthozoan.n.01": 22,
             "gastropod.n.01": 23
@@ -98,7 +98,7 @@ class ETHECLabelMap:
             "persian_cat.n.01": 31,
             "egyptian_cat.n.01": 32,
             "cougar.n.01": 33,
-            "loin.n.01": 34,
+            "lion.n.01": 34,
             "brown_bear.n.01": 35,
             "ladybug.n.01": 36,
             "fly.n.01": 37,
@@ -160,7 +160,7 @@ class ETHECLabelMap:
             "persian_cat.n.01": 31,
             "egyptian_cat.n.01": 32,
             "cougar.n.01": 33,
-            "loin.n.01": 34,
+            "lion.n.01": 34,
             "brown_bear.n.01": 35,
             "ladybug.n.01": 36,
             "fly.n.01": 37,
@@ -676,7 +676,7 @@ class ETHECDB(torch.utils.data.Dataset):
                                                                                                 #11:21] + "R"
     
         image_folder = sample['image_name']#[11:21] 
-        print(image_folder, "image_older")
+        #print(image_folder, "image_older")
         path_to_image = os.path.join(self.path_to_images,sample['image_path'],sample['image_name'])
                             
         
