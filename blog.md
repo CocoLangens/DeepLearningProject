@@ -1,5 +1,5 @@
 # Blog 
-*Authors: Levi Kieft (mail), Coco Langens (c.a.langens@student.tudelft.nl)*
+*Authors: Levi Kieft (l.kieft@student.tudelft.nl), Coco Langens (c.a.langens@student.tudelft.nl)*
 ## Introduction
 This blog aims to describe our efforts into reproducing the paper “Hierarchical Image Classification using Entailment Cone Embeddings”. 
 This paper discusses methods to leverage information about the semantic hierarchy embedded in class labels to boost image classification performance.  
