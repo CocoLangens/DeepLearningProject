@@ -350,7 +350,7 @@ def ETHEC_train_model(arguments):
                                      path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                      labelmap=labelmap, transform=val_test_data_transforms)
         test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
-                                      path_to_images=os.path.join(r'/home/coco_langens/')#,arguments.image_dir),
+                                      path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                       labelmap=labelmap, transform=val_test_data_transforms)
 
     print('Dataset has following splits: train: {}, val: {}, test: {}'.format(len(train_set), len(val_set),
