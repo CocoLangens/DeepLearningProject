@@ -326,31 +326,31 @@ def ETHEC_train_model(arguments):
                             path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
                             labelmap=labelmap, transform=train_data_transforms)
         val_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
-                          path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                          path_to_images=os.path.join(r'/home/coco_langens/'), #,arguments.image_dir),
                           labelmap=labelmap, transform=val_test_data_transforms)
         test_set = ETHECDB(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
-                           path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                           path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                            labelmap=labelmap, transform=val_test_data_transforms)
     elif not arguments.debug:
         train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
-                                  path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                  path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                   labelmap=labelmap, transform=train_data_transforms)
         val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
-                                path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                 labelmap=labelmap, transform=val_test_data_transforms)
         test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
-                                 path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                 path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                  labelmap=labelmap, transform=val_test_data_transforms)
     else:
         labelmap = ETHECLabelMapMergedSmall(single_level=False)
         train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_train.json',
-                                       path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                       path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                        labelmap=labelmap, transform=train_data_transforms)
         val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_val.json',
-                                     path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                     path_to_images=os.path.join(r'/home/coco_langens/'),#,arguments.image_dir),
                                      labelmap=labelmap, transform=val_test_data_transforms)
         test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/own_test.json',
-                                      path_to_images=os.path.join(r'/home/coco_langens/',arguments.image_dir),
+                                      path_to_images=os.path.join(r'/home/coco_langens/')#,arguments.image_dir),
                                       labelmap=labelmap, transform=val_test_data_transforms)
 
     print('Dataset has following splits: train: {}, val: {}, test: {}'.format(len(train_set), len(val_set),
