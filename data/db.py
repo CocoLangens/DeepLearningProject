@@ -53,7 +53,7 @@ class ETHECLabelMap:
         }
 
         self.genus = {
-            "bony_fish.n.01": 0,
+            "Carterocephalus": 0,
             "Heteropterus": 1,
             "Thymelicus": 2,
             "Hesperia": 3,
@@ -191,7 +191,7 @@ class ETHECLabelMap:
         }
 
         self.specific_epithet = {
-            "goldfish.n.01": 0,
+            "palaemon": 0,
             "morpheus": 1,
             "sylvestris": 2,
             "lineola": 3,
@@ -1346,7 +1346,7 @@ class ETHECLabelMap:
 
         self.child_of_subfamily = {
             "Heteropterinae": [
-                "bony_fish.n.01",
+                "Carterocephalus",
                 "Heteropterus"
             ],
             "Hesperiinae": [
@@ -1525,7 +1525,7 @@ class ETHECLabelMap:
         }
 
         self.child_of_genus = {
-            "bony_fish.n.01": [
+            "Carterocephalus": [
                 "Carterocephalus_palaemon"
             ],
             "Heteropterus": [
