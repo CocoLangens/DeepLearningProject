@@ -1,0 +1,22 @@
+{
+    "n01443537_459.JPEG": {
+        "token": "n01443537_459",
+        "image_path": "tiny-imagenet-200/train/n01443537/images",
+        "image_name": "n01443537_459.JPEG",
+        "family": "vertebrate.n.01",
+        "subfamily": "aquatic_vertebrate.n.01",
+        "genus": "bony_fish.n.01",
+        "specific_epithet": "goldfish.n.01",
+        "genus_specific_epithet": "goldfish.n.01"
+    },
+    "n01443537_46.JPEG": {
+        "token": "n01443537_46",
+        "image_path": "tiny-imagenet-200/train/n01443537/images",
+        "image_name": "n01443537_46.JPEG",
+        "family": "vertebrate.n.01",
+        "subfamily": "aquatic_vertebrate.n.01",
+        "genus": "bony_fish.n.01",
+        "specific_epithet": "goldfish.n.01",
+        "genus_specific_epithet": "goldfish.n.01"
+    }
+}
