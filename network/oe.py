@@ -306,23 +306,23 @@ def create_imageless_dataloaders(debug, image_dir):
                                                    ])
     if not debug:
         print("== Running in DEBUG mode!")
-        train_set = ETHECDBMerged(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                   path_to_images=image_dir,
-                                  labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMerged(path_to_json='../database/ETHEC/val.json',
+                                  labelmap=labelmap, transform=train_data_transforms, with_images=True)
+        val_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                 path_to_images=image_dir,
-                                labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMerged(path_to_json='../database/ETHEC/test.json',
+                                labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
+        test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                  path_to_images=image_dir,
                                  labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
     else:
-        train_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/train.json',
+        train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                        path_to_images=image_dir,
                                        labelmap=labelmap, transform=train_data_transforms, with_images=False)
-        val_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/val.json',
+        val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                      path_to_images=image_dir,
                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
-        test_set = ETHECDBMergedSmall(path_to_json='../database/ETHEC/test.json',
+        test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                       path_to_images=image_dir,
                                       labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
 
@@ -2073,13 +2073,13 @@ def order_embedding_labels_with_images_train_model(arguments):
         print("== Running in DEBUG mode!")
 
     if arguments.debug:
-        image_fc7 = np.load('../database/ETHEC/ETHECSmall_embeddings/train.npy')[()]
-        image_fc7.update(np.load('../database/ETHEC/ETHECSmall_embeddings/val.npy')[()])
-        image_fc7.update(np.load('../database/ETHEC/ETHECSmall_embeddings/test.npy')[()])
+        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy', allow_pickle=True)[()]
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy',allow_pickle=True)[()])
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test.npy',allow_pickle=True)[()])
     else:
-        image_fc7 = np.load('../database/ETHEC/ETHEC_embeddings/train.npy')[()]
-        image_fc7.update(np.load('../database/ETHEC/ETHEC_embeddings/val.npy')[()])
-        image_fc7.update(np.load('../database/ETHEC/ETHEC_embeddings/test.npy')[()])
+        image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy',allow_pickle=True)[()]
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy',allow_pickle=True)[()])
+        image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test.npy',allow_pickle=True)[()])
 
     use_criterion = None
     if arguments.loss == 'order_emb_loss':

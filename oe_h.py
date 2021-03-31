@@ -403,17 +403,17 @@ def create_imageless_dataloaders(debug, image_dir):
                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
         test_set = ETHECDBMerged(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                  path_to_images=image_dir,
-                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                                 labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
     else:
         train_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/train.json',
                                        path_to_images=image_dir,
-                                       labelmap=labelmap, transform=train_data_transforms, with_images=False)
+                                       labelmap=labelmap, transform=train_data_transforms, with_images=True)
         val_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/val.json',
                                      path_to_images=image_dir,
-                                     labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                                     labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
         test_set = ETHECDBMergedSmall(path_to_json='/home/coco_langens/DeepLearningProject/database/ETHEC/test.json',
                                       path_to_images=image_dir,
-                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=False)
+                                      labelmap=labelmap, transform=val_test_data_transforms, with_images=True)
 
     print('Dataset images: train {}, val {}, test {}'.format(len(train_set), len(val_set), len(test_set)))
     trainloader = torch.utils.data.DataLoader(train_set,
@@ -2331,6 +2331,7 @@ def order_embedding_labels_with_images_train_model(arguments):
     if arguments.debug:
         print("== Running in DEBUG mode!")
 
+    #Original code
     if arguments.debug:
         image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy', allow_pickle=True)[()]
         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy',allow_pickle=True)[()])
@@ -2339,6 +2340,19 @@ def order_embedding_labels_with_images_train_model(arguments):
         image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train.npy',allow_pickle=True)[()]
         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val.npy',allow_pickle=True)[()])
         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test.npy',allow_pickle=True)[()])
+# =============================================================================
+#     if arguments.debug:
+#         with open('/home/coco_langens/DeepLearningProject/data_files/train_coco.json') as json_train_coco:
+#             image_fc7 = json.load(json_train_coco)
+#         image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train_coco.json', allow_pickle=True)[()]
+#         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val_coco.json',allow_pickle=True)[()])
+#         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test_coco.json',allow_pickle=True)[()])
+#     else:
+#         image_fc7 = np.load('/home/coco_langens/DeepLearningProject/data_files/train_coco.json',allow_pickle=True)[()]
+#         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/val_coco.json',allow_pickle=True)[()])
+#         image_fc7.update(np.load('/home/coco_langens/DeepLearningProject/data_files/test_coco.json',allow_pickle=True)[()])
+# =============================================================================
+
 
     use_criterion = None
     if arguments.loss == 'order_emb_loss':
