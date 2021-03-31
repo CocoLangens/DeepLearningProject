@@ -10,10 +10,12 @@ We want to verify the claims that incorporating hierarchical information in loss
 
 ## Understanding/running the code
 ### Original code
-The paper is provided with code, which is written in Pytorch. The paper itself describes little about steps followed to achieve the desired results, and the authors provide little information on how to use their code and dataset. This chapter will first provide some insights in the code and which parts are needed to reproduce the results that we want to achieve. Afterwards practical steps to run the code are explained. The reproduced paper can be found here: https://arxiv.org/abs/2004.03459.   
-INHOUD  
-- Uitleg over de code en wat we precies willen reproduceren  
-- Praktische stappen om de code te runnen  
+The paper is provided with code, which is written in Pytorch. The paper provides little guidance on steps to take to achieve the desired results and the information how to use their code and dataset is very sparse. This chapter first provides some insights in the code and which parts are needed to reproduce the results that we want to achieve. Afterwards practical steps to run the code are explained. The reproduced paper can be found here: https://arxiv.org/abs/2004.03459.  
+
+### Explanation code and reproduction
+
+### Practical steps and guidance on how to run the code
+
 
 ## Datasets
 Levi
