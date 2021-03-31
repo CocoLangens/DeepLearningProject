@@ -10,7 +10,7 @@ import os
 from network.experiment import Experiment, WeightedResampler
 from network.evaluation import MultiLabelEvaluation, Evaluation, MultiLabelEvaluationSingleThresh, MultiLevelEvaluation
 from network.finetuner import CIFAR10
-from network.ethec_experiments import ETHECExperiment
+from ethec_experiments import ETHECExperiment
 
 from data.db import ETHECLabelMap, ETHECDB, ETHECDBMerged, ETHECLabelMapMerged, ETHECLabelMapMergedSmall, ETHECDBMergedSmall
 from network.loss import MultiLevelCELoss, MultiLabelSMLoss, LastLevelCELoss, MaskedCELoss, HierarchicalSoftmaxLoss
