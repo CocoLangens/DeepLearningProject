@@ -82,7 +82,7 @@ class LastLevelCELoss(torch.nn.Module):
                 # print("will sum these: {}".format(outputs_new[:, self.level_start[level_index+1]+torch.tensor(child_of[parent_ix])]))
                 # print("sum: {}".format(torch.sum(outputs_new[:, self.level_start[level_index+1]+torch.tensor(child_of[parent_ix])], dim=1)))
                 outputs_new[:, self.level_start[level_index]+torch.tensor(parent_ix)] = \
-                    torch.sum(outputs_new[:, self.level_start[level_index+1]+torch.tensor(child_of[parent_ix])], dim=1)
+                    torch.sum(outputs_new[:, self.level_start[level_index+1]+torch.LongTensor(child_of[parent_ix])], dim=1)
                 # print("outputs_new", outputs_new)
 
         loss = 0.0
