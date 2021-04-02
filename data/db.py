@@ -2684,7 +2684,7 @@ class ETHECDB(torch.utils.data.Dataset):
                                      #sample['image_path'] if '.JPG' in sample['image_path'] else sample['image_name'])
         img = cv2.imread(path_to_image)
         #Aangepast    
-        print(type(img), "type")
+        #print(type(img), "type")
         #untill here
         if img is None:
             print('This image is None: {} {}'.format(path_to_image, sample['token']))
